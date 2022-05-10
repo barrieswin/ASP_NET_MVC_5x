@@ -1,5 +1,5 @@
 # ASP_NET_MVC_5x
-ASP.NET MVC version 4.7 website shopping cart
+ASP.NET MVC version 4.7 shopping cart 
 
 更多細節請看(TheOcean企劃書.pdf)
 
