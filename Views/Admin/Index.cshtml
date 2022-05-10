@@ -1,0 +1,98 @@
+﻿@*Using ViewModel IEnumerable*@
+@model IEnumerable<TheOceanWeb.ViewModel.TProductViewModel>
+
+
+@{
+    ViewBag.Title = "商品清單";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<br />
+<h1 class="col-md-12">
+    商品清單
+     <a href="/Admin/Create" class="btn btn-primary btn-m float-right">新增商品</a>
+</h1>
+<br />
+
+<h1 style="color:red">@Session["createSuccess"] @Session["editSuccess"]</h1>
+<br />
+@{
+    //顯示完通知後清空Session
+    Session["createSuccess"] = "";
+    Session["editSuccess"] = "";
+    }
+
+
+<table class="table table-striped table-hover" >
+    <thead>
+        <tr>
+            @*<th>
+            @Html.DisplayNameFor(model => model.FId)
+        </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.FCategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FPid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FImage)
+            </th>
+            <th>
+                供應狀態
+            </th>
+            <th>&nbsp;</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+            @item.FId
+        </td>*@
+                    <td>
+                        @item.FCategory
+                    </td>
+                    <td>
+                        @item.FPid
+                    </td>
+                    <td style="white-space: pre">@item.FName</td>
+                    <td style="white-space: pre">@item.FDescription</td>
+                    <td>
+                        $@item.FPrice
+                    </td>
+                    <td>
+                        @{if (item.FImagePath != null)
+                            {<img src="@Url.Content(item.FImagePath)" width="200" height="200" />
+                            }
+                            else
+                            { <p>沒有圖</p> }
+                        }
+                    </td>
+                    <td>
+                        <input class="check-box" disabled="disabled" type="checkbox" style="transform: scale(1.5)"
+                               @( (item.FIsActiveFlag) ? "checked" : "" ) />
+                    </td>
+
+                    <td>
+                        <p class="float-right">
+                            <a href="/Admin/Edit/@item.FId" class="btn btn-primary btn-m">修改</a>
+                        </p>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,48 @@
+﻿
+@model IEnumerable<TheOceanWeb.Models.tProduct>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="container">
+    <h2 class="text-center">商品列表</h2>
+
+    @foreach (var item in Model)
+    {
+        if (item.fIsActiveFlag == true)
+        {
+            <div class="col-md-4" style="border: 2px solid black">
+
+                <div style="text-align: center; border-bottom: 2px solid maroon">
+                    <h4>@item.fName</h4>
+                </div>
+
+                <div>
+                    <div class="col-md-8">
+                        <img src="@Url.Content(item.fImagePath)" width="150" height="150" />
+                    </div>
+
+                    <div class="col-md-4" style="text-align: left">
+                        <b>@item.fDescription</b>
+                    </div>
+                </div>
+
+                <div class="col-md-8" style="font-size: 18px; border-top: 2px solid maroon; padding: 2px">
+                    <b>單價$ @item.fPrice</b>
+                </div>
+
+                <div class="col-md-4" style="text-align: right; margin-bottom: 10px; border-top: 2px solid maroon; padding: 2px">
+                    <a href="@Url.Action("AddCart", "Shopping")?fPId=@item.fPId" class="btn btn-primary">加入購物車</a>
+                </div>
+            </div>
+        }
+
+    }
+</div>
+
+
+

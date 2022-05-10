@@ -1,0 +1,84 @@
+﻿@model IEnumerable<TheOceanWeb.Models.tOrder>
+
+@{
+    ViewBag.Title = "會員訂單列表";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+<h2>會員訂單列表</h2>
+
+
+<table class="table table-striped table-hover">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fOrderGuid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fUserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fReceiver)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fEmail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fPrize)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fTotal)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.fOrderGuid)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fUserId)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fReceiver)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fEmail)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fAddress)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fPhone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fDate)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fPrize)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.fTotal)
+    </td>
+
+    <td>
+        <a href="@Url.Action("OrderDetail")?fOrderGuid=@item.fOrderGuid"
+           class="btn btn-info">訂單明細</a>
+    </td>
+
+</tr>
+    }
+
+</table>
+
+

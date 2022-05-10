@@ -1,0 +1,194 @@
+﻿@model IEnumerable<TheOceanWeb.Models.tOrderDetail>
+
+@{
+    ViewBag.Title = "會員購物車清單";
+    Layout = "~/Views/Shared/_LayoutMember.cshtml";
+}
+
+
+<link href="~/Content/prize.css" rel="stylesheet" type="text/css">
+
+@{
+    //宣告總計變數
+    int pTotal = 0;
+}
+
+<h2>會員購物車清單</h2>
+
+<p>
+    <a href="/Shopping/OrderList" class="btn btn-primary btn-m">查看訂單</a>
+</p>
+
+
+<table class="table table-striped table-hover">
+        <tr>
+            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.fName)
+            </th>
+            <th style="text-align: right">
+                @Html.DisplayNameFor(model => model.fQty)
+            </th>
+            <th style="text-align: right">
+                @Html.DisplayNameFor(model => model.fPrice)
+            </th>
+            <th style="text-align: right">
+                小計
+            </th>
+            <th></th>
+        </tr>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @{if (item.fImagePath != null)
+                        {<img src="@Url.Content(item.fImagePath)" width="100" height="100" />
+                        }
+                        else
+                        { <p>沒有圖</p> }
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fName)
+                </td>
+                <td style="text-align: right">
+                    @Html.DisplayFor(modelItem => item.fQty)
+                </td>
+                <td style="text-align:right">
+                    @item.fPrice.ToString("$#,###")
+                </td>
+                <td style="text-align:right">
+                    @((item.fPrice * item.fQty).ToString("$#,###"))
+                </td>
+                <td style="text-align:right">
+                    <a href="@Url.Action("DeleteCart")?fId=@item.fId"
+                       class="btn btn-danger"
+                       onclick="return confirm('確定放棄購買 @item.fName 嗎？' )">刪除品項</a>
+                </td>
+            </tr>
+            //計算總價
+            pTotal += (item.fPrice * item.fQty);
+
+        }
+
+
+
+        <tr style="border-top: 2px solid maroon">
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="text-align: right">
+                <h3>總計</h3>
+            </td>
+            <td style="text-align: right">
+                <h3>@pTotal.ToString("$#,###")</h3>
+            </td>
+            <td></td>
+
+        </tr>
+
+    </table>
+
+
+
+
+<br />
+<br />
+
+
+@*抽獎程式開始*@
+
+<h3 style="text-align: center; font: bold 25px/30px Microsoft JhengHei, sans-serif; color: darkred;">幸運抽抽樂</h3>
+<h3 style="text-align: center; font: bold 25px/30px Microsoft JhengHei, sans-serif; color: darkred;">您有一次機會：開始抽獎吧!</h3>
+
+<div class="prize" id="prize">
+    <i>檢疫藥水1份</i>
+    <i>沒中獎</i>
+    <i>魚飼料1份</i>
+    <i>沒中獎</i>
+    <i>硝化細菌1份</i>
+    <i>沒中獎</i>
+    <i>炭源1份</i>
+    <i>沒中獎</i>
+    <i>胺基酸1份</i>
+    <i>沒中獎</i>
+    <i>穩定劑1份</i>
+    <i>沒中獎</i>
+
+
+    @if (Session["drawOnce"] != null)
+        {
+            <button class="mybtn" id="mybtn">抽獎<br>開始</button>
+            Session["drawOnce"] = null;
+        }
+        else
+        {
+            <button class="mybtn" id="mybtn" disabled="disabled" style="background-color:black">抽獎<br>結束</button>
+        }
+
+
+</div>
+
+
+<audio src="~/Audio/tick.mp3" id="myTick"></audio>
+<audio src="~/Audio/tada.mp3" id="myTada"></audio>
+<audio src="~/Audio/fail.mp3" id="myFail"></audio>
+
+<script src="~/Scripts/prize.js"></script>
+
+<h3 style="text-align: center; font: bold 25px/30px Microsoft JhengHei, sans-serif; color: darkred;">抽獎結果</h3>
+<h2 id="prizeRslt" style="text-align: center; color: red"></h2>
+
+@*抽獎程式結束*@
+
+
+
+
+<form action="@Url.Action("ShoppingCart")" method="post">
+    <div class="form-horizontal">
+        <br /><br /><br /><br />
+        <h2>請填寫訂單收件人資料</h2>
+        <hr />
+
+        @*隱藏輸入的Total 和 得獎品項*@
+        <input type="hidden" id="fTotal" name="fTotal" value="@pTotal" class="form-control"/>
+        <input type="hidden" id="fPrize" name="fPrize" class="form-control" />
+
+        <div class="form-group">
+            <span class="control-label col-md-2">收件人姓名</span>
+            <div class="col-md-10">
+                <input type="text" id="fReceiver" name="fReceiver" required="required" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">收件人信箱</span>
+            <div class="col-md-10">
+                <input type="email" id="fEmail" name="fEmail" required="required" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">收件人地址</span>
+            <div class="col-md-10">
+                <input type="text" id="fAddress" name="fAddress" required="required" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <span class="control-label col-md-2">收件人電話</span>
+            <div class="col-md-10">
+                <input type="text" id="fPhone" name="fPhone" required="required" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="確認訂購" class="btn btn-primary btn-m" />
+            </div>
+        </div>
+    </div>
+</form>
+

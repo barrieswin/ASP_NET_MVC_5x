@@ -1,0 +1,157 @@
+﻿@model TheOceanWeb.Models.tProduct
+
+@{
+    ViewBag.Title = "detail";
+}
+<style>
+    .list a {
+        display: block;
+        margin: 30px;
+        padding: 0 20px;
+        height: 100px;
+    }
+
+    .list .list-img {
+        width: 180px;
+        height: 100px;
+        border-radius: 6px;
+        object-fit: cover;
+    }
+
+    .list .title {
+        font-size: 16px;
+        font-weight: bold;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        margin: 10px 0 0;
+    }
+
+    .list .content {
+        font-size: 14px;
+        line-height: 26px;
+        margin: 10px 0 0;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+    }
+    .img {
+        width: 200px;
+        height: 200px;
+    }
+</style>
+
+<div>
+    <div class="container content-controller">
+        <div class="content row d-flex">
+            <div class="col-md-5" style="top: 60px">
+                <img src="@Url.Content(Model.fImagePath)" />
+            </div>
+            <div class="col-md-7">
+                <div class="our_main_box" style="text-align: center; margin: 50px; line-height: 60px;">
+                    <h1 style="font-size: 44px">@Model.fName</h1>
+                    <br />
+                    <h2 style="white-space: pre">@Model.fDescription</h2>
+                    <strong class="yellow" style="font-size: 30px">
+                      @Model.fPrice.ToString("$#,###")
+                    </strong>
+                    <br />
+                    <div style="width: 300px;margin: 10px auto 0;">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div onclick="minus()" class="input-group-addon"><h1>-</h1></div>
+                                    <input type="text" class="form-control" id="exampleInputAmount" value="1">
+                                    <div onclick="add()" class="input-group-addon"><h1>+</h1></div>
+                                </div>
+                            </div>
+                                    <br />
+                                    <a class="read_more" href="@Url.Action("AddCart", "Shopping")?fPId=@Model.fPId">加入購物車</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="content">
+            <h2 class="global-primary dark-primary">商品描述</h2>
+
+            <div class="global-secondary dark-secondary description-container" style="margin: 50px">
+                <div style="margin: 50px">
+                    MAX® S 系統現有純白和純黑。貼合於海水規格鋁架的底櫃側板和門板可隨時更換，
+                    且允許在運作中的水族箱上更新或更換整套顏色。該特性結合燈具和主缸的可替換裝飾板，
+                    空前地提升了使用壽命和靈活性。所有外表面採用防潮塗料（類似用於汽車的工藝）使得產品既高雅又耐用。
+                </div>
+                <img src="~/Images/max-s-3.png">
+                <br>
+                <div style="margin: 50px">
+                    高貴典雅與耐用的結合
+                    MAX® S-系列水族箱採用了12-15mm 厚的超白（低鐵）玻璃，
+                    同時使用了耐海水塑料材料和海水陽極電鍍鋁合金框架。
+                    為了簡化家中組裝操作，所有的膠水粘合、切鋸和佈線等工作我們都已經全部為您代勞。
+                </div>
+                <img src="~/Images/max-s-4.jpg">
+                <br>
+                <div style="margin: 50px">
+                    每台Hydra 26™HD只有90w耗電量，MAX®-S在運行成本方面取得了顯著的績效，僅為傳統T5熒光燈的一小部分。
+                    紅海獨具特色的燈具可滑動於水族箱側邊，便於執行維護任務。
+                </div>
+                <br>
+                <img src="~/Images/max-s-1.jpg">
+                <div style="margin: 50px">
+                    配備集成WiFi的先進LED光照系統
+                    MAX® S-系列包含了全新Hydra 26™ HD LED光照，採用最新的LED技術，優異性能並且用戶界面十分友好。
+                    Hydra 26™ HD單元提供全波段光譜，7種顏色的LED配置展現了最佳顯色性和眾多的燈光效果。
+                    獨具革命性的控制系統通過利用其它顏色沒有使用的功率，高效調整每種顏色的可用功率，
+                    有效的頻道選擇促使輸出功率可提高達100%以上。通過內置WiFi，光照系統能在iOS，安卓，
+                    或開啟WiFi的Mac或PC上達到完全的控制。
+                </div>
+                <img src="~/Images/max-s-5.jpg">
+                <br>
+                <div style="margin: 50px">
+                    MAX® S-系列全面的過濾系統
+                    整個珊瑚礁過濾系統開始於表面水收集，隨後通過可調節靜音系統進入過濾缸。
+                    過濾後的水被一個同時可為蛋白質分離器、製冷機和反應器供水的主循環泵重新輸送到水族箱中。
+                    水族箱與過濾缸通過標配的連接件相連，不需要額外的裝置。
+                    MAX® S-系統是由主循環泵，C-Skim 1800蛋白質分離器 、
+                    機械過濾物活性碳過濾介質和冷水機及輔助反應器連接管件組成。
+                </div>
+                <img src="~/Images/max-s-6.png">
+                <br>
+                <div style="margin: 50px">
+                    MAX® S-系列集成式電源控制中心
+                    MAX® S-系列沿用一插即用的MAX®設計概念和特色電源控制系統，擁有的10個便於檢測的獨立開關，
+                    分別控制所有水泵和其它設備，同時還包含了集成電路斷路器以保證安全。
+                </div>
+                <img src="~/Images/max-s-7.jpg">
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var num = 0;
+    // 對錶單進行初始賦值
+    $('#exampleInputAmount').val(num);
+    // 點選新增時
+    function add() {
+        // 方法體
+        if (num >= 5) {
+            alert('最多可新增5個');
+            return;
+        }
+        num++;
+        console.log(num);
+        $('#exampleInputAmount').val(num);
+    }
+    // 點選刪除時
+    function minus() {
+        if (num < 2) {
+            alert('至少為"1"個商品');
+            return;
+        }
+        num--;
+        console.log(num);
+        $('#exampleInputAmount').val(num);
+    }
+</script>

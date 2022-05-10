@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <title>@ViewBag.Title - TheOcean</title>
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/homestyle.css">
+    <link rel="stylesheet" href="~/Content/responsive.css">
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <link rel="stylesheet" href="~/Content/jquery.mCustomScrollbar.min.css">
+</head>
+<body class="main-layout inner_page">
+    <header>
+        <div class="header" style="background-color: royalblue">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                        <div class="full">
+                            <div class="center-desk">
+                                <div class="logo">
+                                    <a href="~/Shopping/home"><img src="~/Images/hppic5.png" alt="#" /></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                        <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04" aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="navbarsExample04">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Shopping/set">海水缸<small>Set</small></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Shopping/skimmer">蛋白機<small>Skimmer</small></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Shopping/reeflight">燈具<small>ReefLight</small></a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Shopping/others"> 其他<small>Others</small></a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Shopping/ShoppingCart">購物車<small>Cart</small></a>
+                                    </li>
+                                    @*<li class="nav-item">
+                                        <a class="nav-link" href="~/Shopping/OrderList">訂單<small>Order</small></a>
+                                    </li>*@
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">@Session["WelCome"]</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="~/Shopping/Logout">登出<small>Logout</small></a>
+                                    </li>
+                                    @*<li class="nav-item d_none">
+                                                <a class="nav-link" href="#"><i aria-hidden="true"></i></a>
+                                      </li>*@
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    @RenderBody()
+    <footer>
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,916 @@
+﻿@model IEnumerable<TheOceanWeb.Models.tProduct>
+@{
+    ViewBag.Title = "others";
+}
+
+<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RedSea</title>
+    <link rel="icon" type="image/x-icon" href="/img/04.png">
+
+    <link rel="stylesheet" type="text/css" href="~/Content/ShoppingPage.css">
+
+    @* --------------------- *@
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>fresh</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="css/responsive.css">
+    <!-- fevicon -->
+    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+</head>
+
+<body>
+
+    @* ------------------------ *@
+    <div class="juices ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>其他商品</h2>
+
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="our_main_box">
+                        <div class="our_img">
+                            <figure>
+                                @*<img src="~/Images/L005-1.jpg" alt="#" />*@
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 3)
+                                                {
+                                                    <tr>
+                                                        @{if (item.fImagePath != null)
+                                                            {
+                                                                <img src="@Url.Content(item.fImagePath)" width="200" height="200" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>沒有圖</p>
+                                                            }
+                                                        }
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <div class="our_text">
+                            <h4>
+                                $<strong class="yellow">
+                                    <table>
+                                        <tbody>
+                                            @{
+                                                foreach (var item in Model)
+                                                {
+                                                    if (item.fId == 3)
+                                                    {
+                                                        <tr>
+                                                            @item.fPrice
+                                                        </tr>
+
+                                                    }
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+
+                                </strong>
+                            </h4>
+                            <h3>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 3)
+                                                {
+                                                    <tr>
+                                                        @item.fName
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </h3>
+                            <p>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 3)
+                                                {
+                                                    <tr>
+                                                        @item.fDescription
+                                                    </tr>
+                                                    <hr />
+                                                    <tr>
+                                                        <a href="@Url.Action("AddCart", "Shopping")?fPId=@item.fPId">快速加入購物車</a>
+                                                    </tr>
+                                                    <br />
+                                                    <a class="read_more" href="~/home/detail">更多詳情</a>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </p>
+                           
+                        </div>
+                    </div>
+                </div>
+                @* ---------------------------- *@
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <div class="our_main_box">
+                        <div class="our_img">
+                            <figure>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 4)
+                                                {
+                                                    <tr>
+                                                        @{if (item.fImagePath != null)
+                                                            {
+                                                                <img src="@Url.Content(item.fImagePath)" width="200" height="200" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>沒有圖</p>
+                                                            }
+                                                        }
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <div class="our_text">
+                            <h4>
+                                $<strong class="yellow">
+
+                                    <table>
+                                        <tbody>
+                                            @{
+                                                foreach (var item in Model)
+                                                {
+                                                    if (item.fId == 4)
+                                                    {
+                                                        <tr>
+                                                            @item.fPrice
+                                                        </tr>
+
+                                                    }
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+
+                                </strong>
+                            </h4>
+                            <h3>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 4)
+                                                {
+                                                    <tr>
+                                                        @item.fName
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </h3>
+                            <p>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 4)
+                                                {
+                                                    <tr>
+                                                        @item.fDescription
+                                                    </tr>
+                                                    <hr />
+                                                    <tr>
+                                                        <a href="@Url.Action("AddCart", "Shopping")?fPId=@item.fPId">快速加入購物車</a>
+                                                    </tr>
+                                                    <br />
+                                                    <a class="read_more" href="~/home/detail">更多詳情</a>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+                @* ----------------------------------------------- *@
+                <div class="col-md-4 ">
+                    <div class="our_main_box">
+                        <div class="our_img">
+                            <figure>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 5)
+                                                {
+                                                    <tr>
+                                                        @{if (item.fImagePath != null)
+                                                            {
+                                                                <img src="@Url.Content(item.fImagePath)" width="200" height="200" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>沒有圖</p>
+                                                            }
+                                                        }
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <div class="our_text">
+                            <h4>
+                                $<strong class="yellow">
+                                    <table>
+                                        <tbody>
+                                            @{
+                                                foreach (var item in Model)
+                                                {
+                                                    if (item.fId == 5)
+                                                    {
+                                                        <tr>
+                                                            @item.fPrice
+                                                        </tr>
+
+                                                    }
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </strong>
+                            </h4>
+                            <h3>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 5)
+                                                {
+                                                    <tr>
+                                                        @item.fName
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </h3>
+                            <p>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 5)
+                                                {
+                                                    <tr>
+                                                        @item.fDescription
+                                                    </tr>
+                                                    <hr />
+                                                    <tr>
+                                                        <a href="@Url.Action("AddCart", "Shopping")?fPId=@item.fPId">快速加入購物車</a>
+                                                    </tr>
+                                                    <br />
+                                                    <a class="read_more" href="~/home/detail">更多詳情</a>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </p>
+                           
+                        </div>
+                    </div>
+                </div>
+                @* --------------------------- *@
+                <div class="col-md-4 margin_top">
+                    <div class="our_main_box">
+                        <div class="our_img">
+                            <figure>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 6)
+                                                {
+                                                    <tr>
+                                                        @{if (item.fImagePath != null)
+                                                            {
+                                                                <img src="@Url.Content(item.fImagePath)" width="200" height="200" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>沒有圖</p>
+                                                            }
+                                                        }
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <div class="our_text">
+                            <h4>
+                                $<strong class="yellow">
+                                    <table>
+                                        <tbody>
+                                            @{
+                                                foreach (var item in Model)
+                                                {
+                                                    if (item.fId == 6)
+                                                    {
+                                                        <tr>
+                                                            @item.fPrice
+                                                        </tr>
+
+                                                    }
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </strong>
+                            </h4>
+                            <h3>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 6)
+                                                {
+                                                    <tr>
+                                                        @item.fName
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </h3>
+                            <p>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 6)
+                                                {
+                                                    <tr>
+                                                        @item.fDescription
+                                                    </tr>
+                                                    <hr />
+                                                    <tr>
+                                                        <a href="@Url.Action("AddCart", "Shopping")?fPId=@item.fPId">快速加入購物車</a>
+                                                    </tr>
+                                                    <br />
+                                                    <a class="read_more" href="~/home/detail">更多詳情</a>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </p>
+                           
+                        </div>
+                    </div>
+                </div>
+                @* ----------------------------------------------- *@
+                <div class="col-md-4">
+                    <div class="our_main_box">
+                        <div class="our_img">
+                            <figure>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 7)
+                                                {
+                                                    <tr>
+                                                        @{if (item.fImagePath != null)
+                                                            {
+                                                                <img src="@Url.Content(item.fImagePath)" width="200" height="200" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>沒有圖</p>
+                                                            }
+                                                        }
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <div class="our_text">
+                            <h4>
+                                $<strong class="yellow">
+                                    <table>
+                                        <tbody>
+                                            @{
+                                                foreach (var item in Model)
+                                                {
+                                                    if (item.fId == 7)
+                                                    {
+                                                        <tr>
+                                                            @item.fPrice
+                                                        </tr>
+
+                                                    }
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+                                </strong>
+                            </h4>
+                            <h3>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 7)
+                                                {
+                                                    <tr>
+                                                        @item.fName
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </h3>
+                            <p>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 7)
+                                                {
+                                                    <tr>
+                                                        @item.fDescription
+                                                    </tr>
+                                                    <hr />
+                                                    <tr>
+                                                        <a href="@Url.Action("AddCart", "Shopping")?fPId=@item.fPId">快速加入購物車</a>
+                                                    </tr>
+                                                    <br />
+                                                    <a class="read_more" href="~/home/detail">更多詳情</a>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </p>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* --------------------------- *@
+    @* ------------------------ *@
+    <div class="juices ">
+        <div class="container">
+           
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="our_main_box">
+                        <div class="our_img">
+                            <figure>
+                                @*<img src="~/Images/L005-1.jpg" alt="#" />*@
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 14)
+                                                {
+                                                    <tr>
+                                                        @{if (item.fImagePath != null)
+                                                            {
+                                                                <img src="@Url.Content(item.fImagePath)" width="200" height="200" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>沒有圖</p>
+                                                            }
+                                                        }
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <div class="our_text">
+                            <h4>
+                                $<strong class="yellow">
+                                    <table>
+                                        <tbody>
+                                            @{
+                                                foreach (var item in Model)
+                                                {
+                                                    if (item.fId == 14)
+                                                    {
+                                                        <tr>
+                                                            @item.fPrice
+                                                        </tr>
+
+                                                    }
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+
+                                </strong>
+                            </h4>
+                            <h3>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 14)
+                                                {
+                                                    <tr>
+                                                        @item.fName
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </h3>
+                            <p>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 14)
+                                                {
+                                                    <tr>
+                                                        @item.fDescription
+                                                    </tr>
+                                                    <hr />
+                                                    <tr>
+                                                        <a href="@Url.Action("AddCart", "Shopping")?fPId=@item.fPId">快速加入購物車</a>
+                                                    </tr>
+                                                    <br />
+                                                    <a class="read_more" href="~/home/detail">更多詳情</a>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+                @* ---------------------------- *@
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4">
+                    <div class="our_main_box">
+                        <div class="our_img">
+                            <figure>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 15)
+                                                {
+                                                    <tr>
+                                                        @{if (item.fImagePath != null)
+                                                            {
+                                                                <img src="@Url.Content(item.fImagePath)" width="200" height="200" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>沒有圖</p>
+                                                            }
+                                                        }
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <div class="our_text">
+                            <h4>
+                                $<strong class="yellow">
+
+                                    <table>
+                                        <tbody>
+                                            @{
+                                                foreach (var item in Model)
+                                                {
+                                                    if (item.fId == 15)
+                                                    {
+                                                        <tr>
+                                                            @item.fPrice
+                                                        </tr>
+
+                                                    }
+                                                }
+                                            }
+                                        </tbody>
+                                    </table>
+
+                                </strong>
+                            </h4>
+                            <h3>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 15)
+                                                {
+                                                    <tr>
+                                                        @item.fName
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </h3>
+                            <p>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 15)
+                                                {
+                                                    <tr>
+                                                        @item.fDescription
+                                                    </tr>
+                                                    <hr />
+                                                    <tr>
+                                                        <a href="@Url.Action("AddCart", "Shopping")?fPId=@item.fPId">快速加入購物車</a>
+                                                    </tr>
+                                                    <br />
+                                                    <a class="read_more" href="~/home/detail">更多詳情</a>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+                @* ----------------------------------------------- *@
+                <div class="col-md-4 ">
+                    <div class="our_main_box">
+                        <div class="our_img">
+                            <figure>
+                                
+                            </figure>
+                        </div>
+                        <div class="our_text">
+                            <h4>
+                                <strong class="yellow">
+                                    
+                                </strong>
+                            </h4>
+                            <h3>
+                             
+                            </h3>
+                            <p>
+                              
+                            </p>
+                            <a >
+                                
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @* --------------------------- *@
+                <div class="col-md-4 margin_top">
+                    <div class="our_main_box">
+                        <div class="our_img">
+                            <figure>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 16)
+                                                {
+                                                    <tr>
+                                                        @{if (item.fImagePath != null)
+                                                            {
+                                                                <img src="@Url.Content(item.fImagePath)" width="200" height="200" />
+                                                            }
+                                                            else
+                                                            {
+                                                                <p>沒有圖</p>
+                                                            }
+                                                        }
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </figure>
+                        </div>
+                        <div class="our_text">
+                            <h4>
+                               $<strong class="yellow">
+                                   <table>
+                                       <tbody>
+                                           @{
+                                               foreach (var item in Model)
+                                               {
+                                                   if (item.fId == 16)
+                                                   {
+                                                       <tr>
+                                                           @item.fPrice
+                                                       </tr>
+
+                                                   }
+                                               }
+                                           }
+                                       </tbody>
+                                   </table>
+                                </strong>
+                            </h4>
+                            <h3>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 16)
+                                                {
+                                                    <tr>
+                                                        @item.fName
+                                                    </tr>
+
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </h3>
+                            <p>
+                                <table>
+                                    <tbody>
+                                        @{
+                                            foreach (var item in Model)
+                                            {
+                                                if (item.fId == 16)
+                                                {
+                                                    <tr>
+                                                        @item.fDescription
+                                                    </tr>
+                                                    <hr />
+                                                    <tr>
+                                                        <a href="@Url.Action("AddCart", "Shopping")?fPId=@item.fPId">快速加入購物車</a>
+                                                    </tr>
+                                                    <br />
+                                                    <a class="read_more" href="~/home/detail">更多詳情</a>
+                                                }
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            </p>
+                            
+                        </div>
+                    </div>
+                </div>
+                @* ----------------------------------------------- *@
+                <div class="col-md-4">
+                    <div class="our_main_box">
+                        <div class="our_img">
+                            <figure>
+                                
+                            </figure>
+                        </div>
+                        <div class="our_text">
+                            <h4>
+                               <strong class="yellow">
+                                    
+                                </strong>
+                            </h4>
+                            <h3>
+                                
+                            </h3>
+                            <p>
+                                
+                            </p>
+                            <a >
+                                
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @* --------------------------- *@
+
+
+</body>
+
+
+

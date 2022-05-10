@@ -1,0 +1,82 @@
+﻿@model IEnumerable<TheOceanWeb.Models.tOrderDetail>
+
+@{
+    ViewBag.Title = "訂單清單 - 所有訂單";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<br />
+<h1 class="col-md-12">
+    訂單清單
+</h1>
+<br />
+<br />
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            @*<th>
+                @Html.DisplayNameFor(model => model.fOrderGuid)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.fImagePath)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fUserId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fPId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fQty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.fIsApproved)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+        
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.fOrderGuid)
+                    </td>*@
+                    <td>
+                        @{if (item.fImagePath != null)
+                            {<img src="@Url.Content(item.fImagePath)" width="100" height="100" />
+                            }
+                            else
+                            { <p>沒有圖</p> }
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fUserId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fPId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fQty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.fIsApproved)
+                    </td>
+                </tr>
+            }
+        </tbody>
+</table>

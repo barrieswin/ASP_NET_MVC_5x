@@ -1,0 +1,77 @@
+﻿@*Using ViewModel*@
+@model TheOceanWeb.ViewModel.TProductViewModel
+
+
+@{
+    ViewBag.Title = "商品清單 - 新增";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<div class="container">
+    <form action="Create" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <h1 class="col-md-12">商品清單 - 新增</h1>
+            @Html.AntiForgeryToken()
+            @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.FCategory)
+                    @Html.DropDownListFor(model => model.FCategory, new SelectList(Model.CategoryselectListItem, "Value", "Text"),
+                                                                                  "-- 請選擇產品類別--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.FCategory, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.FPid)
+                    @Html.TextBoxFor(model => model.FPid, new { @class = "form-control", autocomplete = "off" })
+                    @Html.ValidationMessageFor(model => model.FPid, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.FName)
+                    @Html.TextBoxFor(model => model.FName, new { @class = "form-control", autocomplete = "off" })
+                    @Html.ValidationMessageFor(model => model.FName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.FDescription)
+                    @Html.TextAreaFor(model => model.FDescription, new { @class = "form-control", autocomplete = "off" })
+                    @Html.ValidationMessageFor(model => model.FDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.FPrice)
+                    @Html.TextBoxFor(model => model.FPrice, new { @class = "form-control", autocomplete = "off" })
+                    @Html.ValidationMessageFor(model => model.FPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.FImage)
+                    @Html.TextBoxFor(model => model.FImage, new { type = "file", @class = "form-control", autocomplete = "off" })
+                    @Html.ValidationMessageFor(model => model.FImage, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-md" value="確定"/> |
+                    <a href="/Admin/Index" class="btn btn-danger btn-md">取消</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+

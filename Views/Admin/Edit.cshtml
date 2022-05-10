@@ -1,0 +1,74 @@
+﻿@*Using Model*@
+
+@model TheOceanWeb.Models.tProduct
+
+
+@{
+    ViewBag.Title = "商品清單 - 修改";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+
+
+<div class="container">
+    <form action="Create" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <h1 class="col-md-12">商品清單 - 修改</h1>
+            @*@Html.AntiForgeryToken()*@
+            @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+
+            @*Sets the "hidden" value of whit FId to edit*@
+            <input type="hidden" id="FId" name="FId" value="@Model.fId" />
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.fPId)
+                    @Html.TextBoxFor(model => model.fPId, new { @class = "form-control", autocomplete = "off" })
+                    @Html.ValidationMessageFor(model => model.fPId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.fName)
+                    @Html.TextBoxFor(model => model.fName, new { @class = "form-control", autocomplete = "off" })
+                    @Html.ValidationMessageFor(model => model.fName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.fDescription)
+                    @Html.TextAreaFor(model => model.fDescription, new { @class = "form-control", autocomplete = "off" })
+                    @Html.ValidationMessageFor(model => model.fDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.fPrice)
+                    @Html.TextBoxFor(model => model.fPrice, new { @class = "form-control", autocomplete = "off" })
+                    @Html.ValidationMessageFor(model => model.fPrice, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    @Html.DisplayNameFor(model => model.fIsActiveFlag)
+                    <p></p>
+                    @Html.CheckBoxFor(model => model.fIsActiveFlag, new { @style = "transform: scale(3); position:relative; left:15px" })
+                    <p></p>
+                    <p>如要設定成停售狀態  請取消勾選</p>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-md" value="確定" /> |
+                    <a href="/Admin/Index" class="btn btn-danger btn-md">取消</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
