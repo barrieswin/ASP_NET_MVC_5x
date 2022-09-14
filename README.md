@@ -1,7 +1,7 @@
 # ASP_NET_MVC_5x
 ASP.NET MVC version 4.7 shopping cart 
 
-更多細節請看(TheOcean企劃書.pdf)
+說明請看(作品TheOcean.pdf)
 
 這是我在資策會的結訓作品
 主題為海洋水族館的購物商城
