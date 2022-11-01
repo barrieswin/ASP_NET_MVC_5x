@@ -1,13 +1,21 @@
 # ASP_NET_MVC_5x
-ASP.NET MVC version 4.7 shopping cart 
 
+網際網路購物網站
+ASP.NET MVC version 4.7 shopping cart 
 說明請看(作品TheOcean.pdf)
 
-這是我在資策會的結訓作品
-主題為海洋水族館的購物商城
+*網站開發使用技術與工具*
+架構：C#、ASP.NET MVC
+前端：HTML、CSS、JavaScript、jQuery
+資料庫運用：SQL Server
+開發工具：Visual Studio 版本控制：Azure DevOps
+GitHub: https://github.com/barrieswin/ASP_NET_MVC_5x
 
-我負責的部分為
-後端: 資料庫建立/整理/規劃、Layout、購物車、登入/註冊授權、
-管理員後台、專案統整、網站架構UI/UX、撰寫作品說明
+*功能*
+首頁 / 會員登入與註冊 / 產品細節 / 產品詳細頁 / 購物車
+管理員登入 / 後台管理CRUD
 
-商品頁面設計 Views/Home 的部分是其他組員寫的
+*說明*
+1. 登入運用Authorize Attribute 指定控制器所有的動作方法必須
+通過授權才能執行，區分會員與管理員權限。
+2. 使用SHA256 雜湊碼用於登入密碼，提高安全性。
