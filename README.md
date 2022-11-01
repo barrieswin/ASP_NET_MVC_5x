@@ -9,7 +9,7 @@ ASP.NET MVC version 4.7 shopping cart
 前端：HTML、CSS、JavaScript、jQuery
 資料庫運用：SQL Server
 開發工具：Visual Studio 版本控制：Azure DevOps
-GitHub: https://github.com/barrieswin/ASP_NET_MVC_5x
+
 
 *功能*
 首頁 / 會員登入與註冊 / 產品細節 / 產品詳細頁 / 購物車
